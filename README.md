@@ -1,27 +1,17 @@
 # sdxl_multi-gpu_FSDP_trainer
-Most likely this is not for you.
+-Most likely this is not for you.
+-If you want an easy to use & excellent stable diffusion trainer, try EveryDream2Trainer:
+-https://github.com/victorchall/EveryDream2trainer/
 
-If you want an easy to use & excellent stable diffusion trainer, try EveryDream2Trainer:
+-I am a novice programmer.
+-I spent 6 months learning python in my spare time, starting from zero programming skills, to be able to write my first function sdxl trainer.
+-I spent a few more months to create what is here.
+-Do not expect a professional programmer's quality, or you will be sorely disappointed.
 
-https://github.com/victorchall/EveryDream2trainer/
-
-
-I am a novice programmer.
-
-I spent 6 months learning python in my spare time, starting from zero programming skills, to be able to write my first function sdxl trainer.
-
-I spent a few more months to create what is here.
-
-Do not expect a professional programmer's quality, or you will be sorely disappointed.
-
-
-The astute among you will notice this repo has no license.
-
-That's because I need to check the code references I used to verify what license I can use.
-
-Assume this is MIT license, or whatever the most open license I can use is.
-
-If you have experience choosing appropriate licenses, and have a suggestion, leave a comment in the discussions.
+-The astute among you will notice this repo has no license.
+-That's because I need to check the code references I used to verify what license I can use.
+-Assume this is MIT license, or whatever the most open license I can use is.
+-If you have experience choosing appropriate licenses, and have a suggestion, leave a comment in the discussions.
 
 
 ## Welcome
