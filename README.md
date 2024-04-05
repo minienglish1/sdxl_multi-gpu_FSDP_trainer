@@ -139,3 +139,4 @@ Other
 
 each python script has detailed information at the top of the script, same for each .sh file.
 they have more info than this readme.
+there are 30 sample image-caption.txt pairs in sample_dataset for you to use to get a feel for this script. Samples are from ComicArtCommunity dataset.
