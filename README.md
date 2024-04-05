@@ -102,25 +102,26 @@ Suggested Training Parameters (though not tested), assuming a very large data se
 
 
 Important
-	- current script uses linux ram drive ("/dev/shm/") to temporally to store unet/pipeline (~10GB) when transferring between processes
-		- if you want to use this script with without using a ram drive, or on other operating systems, you'll need to modify this
-		- I'll add an arg to modify this later
-	- data set caching resolution range & training resolution range must be the same!
-	- site-packages/basicsr/data/degradations.py
-		- change torchvision.transforms.functional_tensor to torchvision.transforms.functional
+- current script uses linux ram drive ("/dev/shm/") to temporally to store unet/pipeline (~10GB) when transferring between processes
+	- if you want to use this script with without using a ram drive, or on other operating systems, you'll need to modify this
+	- I'll add an arg to modify this later
+- data set caching resolution range & training resolution range must be the same!
+- site-packages/basicsr/data/degradations.py
+	- change torchvision.transforms.functional_tensor to torchvision.transforms.functional
 
 Known Bugs/Issues
-	- cache_dir: only works with relative paths
-		- I'll fix this later
-	- upscale/original_image Vs not upscale/original image training quality comparison test not conducted yet
+- cache_dir: only works with relative paths
+	- I'll fix this later
+- upscale/original_image Vs not upscale/original image training quality comparison test not conducted yet
 
 
 Other
-	- data set caching script runs on 1 gpu.  Run multiple processes to use more gpus.
-	- dynamic batch size based on resolution with goal of maximizing batch size was tested with deepspeed zero stage 2
-		- had insignificant impact on batch sizes of differing resolutions
-	- torch compile lead to 5% decrease in initial training speed, long-term training speed probably same as without torch compile. so we don't use torch.compile()
- 	- this script does not lora dreambooths
+- data set caching script runs on 1 gpu.  Run multiple processes to use more gpus.
+- dynamic batch size based on resolution with goal of maximizing batch size was tested with deepspeed zero stage 2
+	- had insignificant impact on batch sizes of differing resolutions, so it was dropped
+- torch compile lead to 5% decrease in initial training speed, long-term training speed probably same as without torch compile. so we don't use torch.compile()
+- this script does not lora dreambooths
+
 
 ## Installation and usage
   1) git clone this repo
