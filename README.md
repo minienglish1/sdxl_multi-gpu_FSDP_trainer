@@ -127,7 +127,7 @@ Other
   1) git clone this repo
   2) create venv (create_venv.sh)
   3) install requirements (update_req.sh)
-  4) in venv/lib/site-packages/basicsr/data/degradations.py
+  4) in venv/lib/python3.10/site-packages/basicsr/data/degradations.py
    	- change torchvision.transforms.functional_tensor to torchvision.transforms.functional
      	- basicsr uses deprecated call to torchvision
   6) download and put in base directory:
