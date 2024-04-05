@@ -72,37 +72,6 @@
     #torch compile lead to 5% decrease in initial training speed, long-term training speed probably same as without torch compile
     #this script does not lora dreambooths
 
-#needed code modifications for accelerate/FSDP:
-    #Low Precision LayerNorm
-    #accelerate.print #to print on on main process
-    #class TorchTracemalloc: &  with TorchTracemalloc() as tracemalloc: #tracks peak memory usage of the processes #i nfsdp_with_peak_mem_tracking.py
-    #total_loss += loss.detach().float() #for tracking loss for logging
-    #Accelerator.gather_for_metrics #gathers across processes, drops duplicates
-    #load from most recent checkpoint: in checkpointing.py
-    #dropout: neurons/layers: change instances of Dropout(p=0.0, inplace=False) to Dropout(p=0.1, inplace=False)
-    #global minimum_learning_rate:
-            #for param_group in optimizer.param_groups:
-                #param_group['lr'] = max(param_group['lr'], minimum_learning_rate)
-    #what is enforce_zero_terminal_snr?
-    #min SNR Gamma
-    #manually adjust loss scale before training begins
-    #use HPSv2 to compare generated image and original, then use for DPO
-    #DPO
-    #use_ema
-    #timestep_bias_strategy
-    #theory: Adam uses more memory during 1st epoch
-        #first epoch placeholder optimizer: torch.optim.SGD([])  # Empty optimizer
-        #accelerate: unet, placeholder_optimizer, train_dataloader = accelerator.prepare(unet, placeholder_optimizer, train_dataloader)
-        #training loop:
-            #for epoch in range(1, num_epochs + 1):
-                #if epoch > 1:
-                    # Create the actual optimizer from the second epoch onward
-                    #optimizer = torch.optim.Adam(unet.parameters(), lr=learning_rate)
-                    # Replace the placeholder optimizer with the actual optimizer
-                    #accelerator.replace_optimizer(placeholder_optimizer, optimizer)
-                # Training loop continues with accelerated training
-                #for batch in train_dataloader:
-
 #learning rate 1e-5 w/ batch size ~2000, 200 epochs
     #potential learning rates 4e-7, for batch size 1, bsz 2000 1e-5
     #512: 1e-6 over 7000 steps with a batch size of 64
