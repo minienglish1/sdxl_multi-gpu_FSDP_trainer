@@ -1,0 +1,27 @@
+accelerate
+bitsandbytes
+diffusers
+joblib
+numpy
+pillow
+pynvml #used for gpu vram logging, probably will be changed
+tensorboard
+tqdm
+torch
+torchvision
+transformers
+lpips
+opencv-python #cv2
+
+#HPSv2
+git+https://github.com/tgxs002/HPSv2.git
+
+#GFPGANer
+facexlib
+lmdb
+yapf
+
+#basicsr
+addict
+future
+scikit-image
