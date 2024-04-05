@@ -96,9 +96,9 @@ Loss & Validation
 
 
 Suggested Training Parameters (though not tested), assuming a very large data set
-	- learning rate: 1e-5
-	- effective batch size: ~2000
-	- resolution: 1024
+- learning rate: 1e-5
+- effective batch size: ~2000
+- resolution: 1024
 
 
 Important
