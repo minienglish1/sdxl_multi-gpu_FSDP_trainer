@@ -144,7 +144,7 @@ Other
   9) cache image-caption.txt pair database (sdxl_process_data_dir.sh)
      - choose gpu to use via changing gpu_ids: in single_gpu_0.yaml (set for gpu 0)
   11) train (train.sh)
-     - choose gpus to use via changing gpu_ids: in FSDP_12.yaml (set for gpus 1,2)
+      - choose gpus to use via changing gpu_ids: in FSDP_12.yaml (set for gpus 1,2)
 
 
 each python script has detailed information at the top of the script, same for each .sh file.
