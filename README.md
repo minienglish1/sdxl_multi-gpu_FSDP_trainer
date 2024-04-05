@@ -24,7 +24,7 @@ This script was written by me, for me, for my specific goal: Using consumer grad
 
 This is a script meant to do a professional job, using consumer parts.  That's it.  It's not designed to be friendly, convenient, or popular.
 
-With that said, apologies for the state of this readme. This has been a long project and I'm kinda burntout.  If there is significant interest in this repo, I'll take the time to write a better readme.  If you have questions, put in the discussions, not issues.  If something is broken, and you are using and environment similar to below, put it in issues.  Otherwise, put it discussions.
+With that said, apologies for the state of this readme. This has been a long project and I'm kinda burntout.  If there is significant interest in this repo, I'll take the time to write a better readme.  If you have questions, put in the discussions, not issues.  If something is broken, and you are using an environment similar to below, put it in issues.  Otherwise, put it discussions.
 
 
 Training Environment:
