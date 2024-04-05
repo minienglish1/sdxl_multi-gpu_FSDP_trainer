@@ -47,7 +47,7 @@ Further info: sdxl_FSDP_train
 Features:
 - accelerate FSDP FULL_SHARD
 - trains in fp32 with accelerate.autocast(fp16)
-- Defaults: tf32, gradient_checkpointing, gradient_accumulation, DDPMScheduler
+- gradient_checkpointing, gradient_accumulation, DDPMScheduler
 - Optimizer: AdamW8bit
 	- Adagrad8bit, Lion8bit: could be added with simple code change
         - Adafactor: initial tests showed Cuda OOM, required 1/2 batch size to not OOM
