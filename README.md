@@ -54,7 +54,8 @@ Features:
 - Optimizer: AdamW8bit
 	- Adagrad8bit, Lion8bit: could be added with simple code change
         - Adafactor: initial tests showed Cuda OOM, required 1/2 batch size to not OOM
-- save & load unet: save state is nonfunctional due to BNB incompatibility with FSDP, wait for BNB to issue fix
+- save & load unet: saves un-sharded trained unet to disk, load & re-shard unet to continue training
+	- accelerator.save_state is nonfunctional due to BNB incompatibility with FSDP, wait for BNB to issue fix
 - save pipeline as fp16
 - sample image generation = 1st row is base_model + new sample_images appended below
 - progress bar - it/sec, imgs/sec, loss
