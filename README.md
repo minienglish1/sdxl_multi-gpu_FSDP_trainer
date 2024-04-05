@@ -19,7 +19,6 @@ This script was written by me, for me, for my specific goal: Using consumer grad
 
 This is a script meant to do a professional job, using consumer parts.  That's it.  It's not designed to be friendly, convenient, or popular.
 
-
 With that said, apologies for the state of this readme. This has been a long project and I'm kinda burntout.  If there is significant interest in this repo, I'll take the time to write a better readme.  If you have questions, put in the discussions, not issues.  If something is broken, and you are using and environment similar to below, put it in issues.  Otherwise, put it discussions.
 
 
@@ -33,24 +32,23 @@ Training Environment:
 
 This script has not been tested in any other environment, and there are no plans to.
 
-#Basic script info:
-Uses accelerate with fully sharded data parallel (FSDP), fine-tunes an sdxl model with a minimum of 2 24GB gpus.
-It may work with 2 20/22GB gpus, that's for you to test.
+## Basic script info:
+Uses accelerate with fully sharded data parallel (FSDP), fine-tunes an sdxl model with a minimum of 2 24GB gpus. It may work with 2 20/22GB gpus, that's for you to test.
 
-Further info:
-sdxl_FSDP_train
-    designed for large scale, large data set training
-    it's assumed that you're willing to do what needs to be done to train an awesome model
-    tested on Ubuntu 22.04 with 2 rtx3090s
-    at 1024 resolution, with rtx3090s, ~1.45imgs/sec per rtx3090
+
+Further info: sdxl_FSDP_train
+- designed for large scale, large data set training
+- it's assumed that you're willing to do what needs to be done to train an awesome model
+- tested on Ubuntu 22.04 with 2 rtx3090s
+- at 1024 resolution, with rtx3090s, ~1.45imgs/sec per rtx3090
 
 Features:
-    accelerate FSDP FULL_SHARD
-    trains in fp32 with accelerate.autocast(fp16)
-    Defaults: tf32, gradient_checkpointing, gradient_accumulation, DDPMScheduler
-    Optimizer: AdamW8bit
-        Adagrad8bit, Lion8bit: could be added with simple code change
-        Adafactor: initial tests showed Cuda OOM, required 1/2 batch size to not OOM
+- accelerate FSDP FULL_SHARD
+- trains in fp32 with accelerate.autocast(fp16)
+- Defaults: tf32, gradient_checkpointing, gradient_accumulation, DDPMScheduler
+- Optimizer: AdamW8bit
+	- Adagrad8bit, Lion8bit: could be added with simple code change
+        - Adafactor: initial tests showed Cuda OOM, required 1/2 batch size to not OOM
     save & load unet: save state is nonfunctional due to BNB incompatibility with FSDP, wait for BNB to issue fix
     save pipeline as fp16
     sample image generation = 1st row is base_model + new sample_images appended below
