@@ -134,6 +134,7 @@ Other
   6) download and put in base directory:
      - GFPGANv1.3.pth : https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.3.pth
      - RealESRGAN_x4plus.pth : https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth
+     - HPS_v2.1_compressed.pt: https://huggingface.co/xswu/HPSv2/blob/main/HPS_v2.1_compressed.pt
   7) download bpe_simple_vocab_16e6.txt.gz: https://github.com/openai/CLIP/blob/main/clip/bpe_simple_vocab_16e6.txt.gz
      - put in: venv/lib/python3.10/site-packages/hpsv2/src/open_clip/
   9) cache image-caption.txt pair database (sdxl_process_data_dir.sh)
