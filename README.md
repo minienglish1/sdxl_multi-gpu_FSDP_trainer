@@ -1,6 +1,7 @@
 # sdxl_multi-gpu_FSDP_trainer
 
-## THIS REPO HAS NOT BEEN TESTED TO ENSURE IT IS WORKING YET.  USE AT YOUR OWN RISK!
+## THIS REPO IS NOT VERIFIED WORKING YET.
+## USE AT YOUR OWN RISK!
 
 Most likely this is not for you.
 If you want an easy to use & excellent stable diffusion trainer, try EveryDream2Trainer:
