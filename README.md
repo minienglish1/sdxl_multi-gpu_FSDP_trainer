@@ -127,12 +127,13 @@ Other
   1) git clone this repo
   2) create venv (create_venv.sh)
   3) install requirements (update_req.sh)
-  4) in venv/lib/python3.10/site-packages/basicsr/data/degradations.py
-   	- change torchvision.transforms.functional_tensor to torchvision.transforms.functional
-     	- basicsr uses deprecated call to torchvision
+     - GFPGAN/BasicSR/RealESRGAN will complain about tb-nightly not installed.  Installing tb-nightly causes two versions of tensorboard to be installed, thus breaking tensorboard.  If you know the proper way of preventing tb-nightly from being installed, let me know in discussions.  Currenly GFPGAN/BasicSR/RealESRGAN installed without dependencies, then need dependencies installed.
+  5) in venv/lib/python3.10/site-packages/basicsr/data/degradations.py
+     - change torchvision.transforms.functional_tensor to torchvision.transforms.functional
+     - basicsr uses deprecated call to torchvision
   6) download and put in base directory:
-	- GFPGANv1.3.pth : https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.3.pth
-	- RealESRGAN_x4plus.pth : https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth
+     - GFPGANv1.3.pth : https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.3.pth
+     - RealESRGAN_x4plus.pth : https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth
   7) cache image-caption.txt pair database (sdxl_process_data_dir.sh)
   8) train (train.sh)
 
