@@ -142,7 +142,9 @@ Other
   7) download bpe_simple_vocab_16e6.txt.gz: https://github.com/openai/CLIP/blob/main/clip/bpe_simple_vocab_16e6.txt.gz
      - put in: venv/lib/python3.10/site-packages/hpsv2/src/open_clip/
   9) cache image-caption.txt pair database (sdxl_process_data_dir.sh)
-  10) train (train.sh)
+     - choose gpu to use via changing gpu_ids: in single_gpu_0.yaml (set for gpu 0)
+  11) train (train.sh)
+     - choose gpus to use via changing gpu_ids: in FSDP_12.yaml (set for gpus 1,2)
 
 
 each python script has detailed information at the top of the script, same for each .sh file.
