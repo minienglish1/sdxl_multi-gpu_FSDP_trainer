@@ -1,7 +1,7 @@
 # sdxl_multi-gpu_FSDP_trainer
--Most likely this is not for you.
--If you want an easy to use & excellent stable diffusion trainer, try EveryDream2Trainer:
--https://github.com/victorchall/EveryDream2trainer/
+Most likely this is not for you.
+If you want an easy to use & excellent stable diffusion trainer, try EveryDream2Trainer:
+https://github.com/victorchall/EveryDream2trainer/
 
 I am a novice programmer.
 I spent 6 months learning python in my spare time, starting from zero programming skills, to be able to write my first function sdxl trainer.
@@ -15,37 +15,20 @@ If you have experience choosing appropriate licenses, and have a suggestion, lea
 
 
 ## Welcome
-This script was written by me, for me, for my specific goal:
-	-Using consumer grade gpus, fine-tune an sdxl model that is of equal quality of that trained by professional/enterprise grade gpus
+This script was written by me, for me, for my specific goal: Using consumer grade gpus, fine-tune an sdxl model that is of equal quality of that trained by professional/enterprise grade gpus
+
+This is a script meant to do a professional job, using consumer parts.  That's it.  It's not designed to be friendly, convenient, or popular.
 
 
-This is a script meant to do a professional job, using consumer parts.  That's it.
-
-It's not designed to be friendly, convenient, or popular.
-
-
-With that said, apologies for the state of this readme.
-
-This has been a long project and I'm kinda burntout.
-
-If there is significant interest in this repo, I'll take the time to write a better readme.
-
-If you have questions, put in the discussions, not issues.
-
-If something is broken, and you are using and environment similar to below, put it in issues.
-
-Otherwise, put it discussions.
+With that said, apologies for the state of this readme. This has been a long project and I'm kinda burntout.  If there is significant interest in this repo, I'll take the time to write a better readme.  If you have questions, put in the discussions, not issues.  If something is broken, and you are using and environment similar to below, put it in issues.  Otherwise, put it discussions.
 
 
 Training Environment:
 
-Ubuntu 22.04
-
-python 3.10.12
-
-2 rtx3090s
-
-128GB ram (though 64 probably will suffice)
+- Ubuntu 22.04
+- python 3.10.12
+- 2 rtx3090s
+- 128GB ram (though 64 probably will suffice)
 
 
 This script has not been tested in any other environment, and there are no plans to.
