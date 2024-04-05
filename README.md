@@ -80,6 +80,8 @@ Features:
         - For consistency in samples/validation between deterministic/random training runs: --set_seed 123
 - transparent images merged with white background for caching
 - conditional_dropout: default = 0.1, % of captions to replace with empty captions
+
+Loss & Validation
 	- default uses 10% of data set for validation_loss/validation_image
 
 - loss:
