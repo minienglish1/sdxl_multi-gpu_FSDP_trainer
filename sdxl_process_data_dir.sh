@@ -4,6 +4,9 @@
 #arguments:
 #	--cache_dir				save cached latents to dir
 #	--data_dir				image-caption.txt pair dir
+#	--basename				basename is the name of the dataset folder
+#							example "/mnt/storage/comics_dataset/" basename is "comics_dataset
+#							this is used to keep the cache directory organized
 #	--pretrained_model_name_or_path		sdxl model to train
 #	--max_resolution			max training image resolution	
 #	--min_resolution			mix training image resolution
@@ -11,11 +14,14 @@
 #	--upscale_use_GFPGAN			use GFPGAN - for photos
 #	--save_upscale_samples			saves copy of upscaled images
 
+export NCCL_P2P_DISABLE=1
+export NCCL_IB_DISABLE=1
 
 source venv/bin/activate
 accelerate launch --config_file single_gpu_0.yaml sdxl_process_data_dir_06.py \
 	--cache_dir /mnt/storage/cache/ \
 	--data_dir sample_dataset \
+	--basename sample_dataset \
 	--max_resolution 1024 \
 	--min_resolution 256 \
 	--upscale_to_resolution 1024 \

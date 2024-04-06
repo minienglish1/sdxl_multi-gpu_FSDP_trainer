@@ -287,6 +287,7 @@ def cache_image_caption_pair(
         pretrained_vae_model_name_or_path,
         cache_dir,
         data_dir,
+        basename,
         accelerator,
         device,
         max_resolution,
@@ -312,10 +313,11 @@ def cache_image_caption_pair(
 
     cache_dir = abs_cache_dir
 
-    #data_dir_basename
-    data_dir_basename = os.path.basename(data_dir)
+    #create paths
+    basename = basename.lstrip('/')
+    cache_dir = os.path.join(cache_dir, basename)
 
-    os.makedirs(os.path.join(cache_dir, data_dir_basename), exist_ok=True)
+    os.makedirs(cache_dir, exist_ok=True)
 
     #welcome message
     print("initiating cache_image_caption_pair function")
@@ -362,17 +364,19 @@ def cache_image_caption_pair(
 
             #image & caption paths & relative paths
             image_file = image_caption_files_tuple_list[i][0]
-            relative_image_file = image_file.replace(data_dir, '').lstrip('/')
+            image_file_split = image_file.split(basename, 1)[1].lstrip('/')
+            image_file_cache_path = os.path.join(cache_dir, image_file_split)
             caption_file = image_caption_files_tuple_list[i][1]
-            relative_caption_file = caption_file.replace(data_dir, '').lstrip('/')
+            caption_file_split = caption_file.split(basename, 1)[1].lstrip('/')
+            caption_file_cache_path = os.path.join(cache_dir, caption_file_split)
             print(f"\nprocessing [{i}]:\n{image_file}")
 
             #to cache files' paths
             #os.path.join(cache_dir, data_dir_basename, f"{relative_file...
-            json_file_path = os.path.join(cache_dir, data_dir_basename, f"{relative_image_file}.metadata.json")
-            model_input_file = os.path.join(cache_dir, data_dir_basename, f"{relative_image_file}.latent.pkl")
-            prompt_embed_file = os.path.join(cache_dir, data_dir_basename, f"{relative_caption_file}.prompt_embed.pkl")
-            pooled_prompt_embed_file = os.path.join(cache_dir, data_dir_basename, f"{relative_caption_file}.pooled_prompt_embed.pkl")
+            json_file_path = f"{image_file_cache_path}.metadata.json"
+            model_input_file = f"{image_file_cache_path}.latent.pkl"
+            prompt_embed_file = f"{caption_file_cache_path}.prompt_embed.pkl"
+            pooled_prompt_embed_file = f"{caption_file_cache_path}.pooled_prompt_embed.pkl"
             os.makedirs(os.path.dirname(model_input_file), exist_ok=True)
 
 
@@ -701,6 +705,7 @@ def cache_image_caption_pair(
 
             #setup & save cache json_file
             metadata = {
+                "basename": basename,
                 "data_dir": data_dir,
                 "cache_dir": cache_dir,
                 "image_file": image_file,

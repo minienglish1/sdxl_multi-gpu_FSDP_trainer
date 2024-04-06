@@ -39,6 +39,7 @@ device = accelerator.device
 
 ##arguments
 parser = argparse.ArgumentParser()
+parser.add_argument("--basename", type=str, default="data", help="The name of the dataset folder: ie '/mnt/storage/comics/' basename would be 'comics'")
 parser.add_argument("--data_dir", type=str, default="data", help="'path/to/data_dir' --image-caption.txt directory location")
 parser.add_argument("--cache_dir", type=str, default="cache", help="'path/to/cache_dir'data_dir --location to store cached images/captions")
 parser.add_argument("--pretrained_model_name_or_path", type=str, default="stabilityai/stable-diffusion-xl-base-1.0", help="'huggingface model, or path to local model")
@@ -53,6 +54,7 @@ args = parser.parse_args()
 ##variables
 
 #dirs
+basename = args.basename
 data_dir = args.data_dir
 cache_dir = args.cache_dir
 os.makedirs(cache_dir, exist_ok=True)
@@ -87,15 +89,16 @@ image_caption_files_tuple_list = data_dir_search(data_dir)
 #returns list of json filepaths
 json_file_paths_list = cache_image_caption_pair(
     image_caption_files_tuple_list,
-    pretrained_model_name_or_path,
-    pretrained_vae_model_name_or_path,
-    cache_dir,
-    data_dir,
-    accelerator,
-    device,
-    max_resolution,
-    min_resolution,
-    upscale_to_resolution,
-    upscale_use_GFPGAN,
-    save_upscale_samples
+	pretrained_model_name_or_path,
+	pretrained_vae_model_name_or_path,
+	cache_dir,
+	data_dir,
+	basename,
+	accelerator,
+	device,
+	max_resolution,
+	min_resolution,
+	upscale_to_resolution,
+	upscale_use_GFPGAN,
+	save_upscale_samples
 )

@@ -435,6 +435,7 @@ def main():
             #open and read json_file metadata, append to failed captions list
             with open(json_file, "r") as f: 
                 metadata = json.load(f)
+            basename = metadata["basename"]
             cache_dir = metadata["cache_dir"]
             data_dir = metadata["data_dir"]
             image_file = metadata["image_file"]
@@ -445,18 +446,19 @@ def main():
             image_caption_files_tuple_list.append(failed_pair)
             #try re-caching image-caption.txt pair
             recached_json_list = cache_image_caption_pair(
-                image_caption_files_tuple_list,
-                pretrained_model_name_or_path,
-                pretrained_vae_model_name_or_path,
-                cache_dir,
-                data_dir,
-                accelerator,
-                device,
-                max_resolution,
-                min_resolution,
-                upscale_to_resolution,
-                upscale_use_GFPGAN,
-                save_upscale_samples
+                    image_caption_files_tuple_list,
+                    pretrained_model_name_or_path,
+                    pretrained_vae_model_name_or_path,
+                    cache_dir,
+                    data_dir,
+                    basename,
+                    accelerator,
+                    device,
+                    max_resolution,
+                    min_resolution,
+                    upscale_to_resolution,
+                    upscale_use_GFPGAN,
+                    save_upscale_samples
                 )
             #verify re-cached hash values
             for json_file_recached in recached_json_list:

@@ -20,6 +20,10 @@
 
 #see sdxl_FSDP_train for full list of arguments
 
+#maybe needed for accelerate error
+#better to roll back accelerate to earlier version than use
+#export NCCL_P2P_DISABLE=1
+#export NCCL_IB_DISABLE=1
 
 #export TRANSFORMERS_OFFLINE=1 #uncomment to train offline
 source venv/bin/activate
