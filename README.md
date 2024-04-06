@@ -148,4 +148,4 @@ If you have other problems with requirements, see pip_freeze.txt for a list of t
 
 Each python script has detailed information at the top of the script, same for each .sh file.
 They have more info than this readme.
-Ehere are 100 sample image-caption.txt pairs in sample_dataset for you to use to get a feel for this script. Samples are from ComicArtCommunity dataset, captioned with cog.
+There are 100 sample image-caption.txt pairs in sample_dataset for you to use to get a feel for this script. Samples are from ComicArtCommunity dataset, captioned with cog.
