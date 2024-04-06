@@ -164,8 +164,11 @@ def calculate_validation_image_scores(pipeline, generator, device, accelerator, 
 
         
         ##HPSv2 setup
-        #following code modified from hpsv2.img_score.py, 
-        #because importing hpsv2 & using hpsv2.score caused Cuda OOMs on next epoch
+        #HPSv2 is Apache-2.0 license 
+        #License: https://github.com/tgxs002/HPSv2/blob/master/LICENSE
+        #Original code: https://github.com/tgxs002/HPSv2/blob/master/hpsv2/img_score.py
+        #The code has been modified to suite the needs of this script
+            #specifically because importing hpsv2 & using hpsv2.score caused Cuda OOMs on next epoch
         
         #get model?
         model_dict = {}

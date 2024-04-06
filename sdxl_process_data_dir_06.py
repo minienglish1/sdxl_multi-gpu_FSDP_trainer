@@ -22,7 +22,7 @@ import os
 
 from accelerate import Accelerator
 
-from sdxl_data_functions_17 import data_dir_search, cache_image_caption_pair
+from sdxl_data_functions_18 import data_dir_search, cache_image_caption_pair
 
 
 #welcome message

@@ -163,6 +163,16 @@ class CachedImageDataset(Dataset):
 #search for image-caption.txt pairs the directory and subdirectories
 #input: data_dir output: image_files & caption_files (lists)
 def data_dir_search(data_dir):
+
+    #convert to absolute data_dir
+    if os.path.isabs(data_dir):
+        abs_data_dir = data_dir
+    else:
+        abs_data_dir = os.path.abspath(data_dir)
+    
+    data_dir = abs_data_dir
+
+    
     #begin
     image_ext = ['.png', '.jpg', '.jpeg', ".bmp", ".webp", ".tif"]
     image_caption_files_tuple_list = []
@@ -286,7 +296,26 @@ def cache_image_caption_pair(
         save_upscale_samples
     ):
 
-    os.makedirs(cache_dir, exist_ok=True)
+    #absolute data_dir
+    if os.path.isabs(data_dir):
+        abs_data_dir = data_dir
+    else:
+        abs_data_dir = os.path.abspath(data_dir)
+
+    data_dir = abs_data_dir
+
+    #absolute cache_dir
+    if os.path.isabs(cache_dir):
+        abs_cache_dir = cache_dir
+    else:
+        abs_cache_dir = os.path.abspath(cache_dir)
+
+    cache_dir = abs_cache_dir
+
+    #data_dir_basename
+    data_dir_basename = os.path.basename(data_dir)
+
+    os.makedirs(os.path.join(cache_dir, data_dir_basename), exist_ok=True)
 
     #welcome message
     print("initiating cache_image_caption_pair function")
@@ -330,15 +359,26 @@ def cache_image_caption_pair(
         print(f"  --{len(image_caption_files_tuple_list)} image-caption.txt files")
         print("...")
         for i in range(len(image_caption_files_tuple_list)):
+
+            #image & caption paths & relative paths
             image_file = image_caption_files_tuple_list[i][0]
+            relative_image_file = image_file.replace(data_dir, '').lstrip('/')
             caption_file = image_caption_files_tuple_list[i][1]
+            relative_caption_file = caption_file.replace(data_dir, '').lstrip('/')
             print(f"\nprocessing [{i}]:\n{image_file}")
+
+            #to cache files' paths
+            #os.path.join(cache_dir, data_dir_basename, f"{relative_file...
+            json_file_path = os.path.join(cache_dir, data_dir_basename, f"{relative_image_file}.metadata.json")
+            model_input_file = os.path.join(cache_dir, data_dir_basename, f"{relative_image_file}.latent.pkl")
+            prompt_embed_file = os.path.join(cache_dir, data_dir_basename, f"{relative_caption_file}.prompt_embed.pkl")
+            pooled_prompt_embed_file = os.path.join(cache_dir, data_dir_basename, f"{relative_caption_file}.pooled_prompt_embed.pkl")
+            os.makedirs(os.path.dirname(model_input_file), exist_ok=True)
 
 
             #check if image-caption.txt pair already cached
             #if failed cached_file_integrity_check, will be re-cached
             #TO-DO: re-cache based failure message
-            json_file_path = os.path.join(cache_dir, f"{image_file}.metadata.json")
             if os.path.exists(json_file_path):
                 if cached_file_integrity_check(json_file_path) == "pass":
                     json_file_paths_list.append(json_file_path)
@@ -545,9 +585,7 @@ def cache_image_caption_pair(
                 #print(f"\nmodel_input: {model_input.shape}") #for 1024 image : torch.Size([4, 128, 128])
             del image, pixel_values
 
-            #save model_input (latent_image)
-            model_input_file = os.path.join(cache_dir, f"{image_file}.latent.pkl")
-            os.makedirs(os.path.dirname(model_input_file), exist_ok=True)
+            #save model_input (latent_image) #model_input_file path created earlier
             joblib.dump(model_input, model_input_file)
             del model_input
 
@@ -644,19 +682,14 @@ def cache_image_caption_pair(
 
             #create embed filename by 1. remove root  2. prepend cache 3. append hash_value.latent.pkl
 
-            #prompt_embed_file cache & hash 
-            prompt_embed_file = os.path.join(cache_dir, f"{caption_file}.prompt_embed.pkl")
-            os.makedirs(os.path.dirname(prompt_embed_file), exist_ok=True)
+            #prompt_embed_file & pooled_prompt_embed_file: cache & hash # file paths created earlier
             joblib.dump(prompt_embed, prompt_embed_file)
             prompt_embed_file_hash_value = hashlib.sha256(prompt_embed_file.encode()).hexdigest()
             del prompt_embed
-
-            #pooled_prompt_embed_file cache & hash 
-            pooled_prompt_embed_file = os.path.join(cache_dir, f"{caption_file}.pooled_prompt_embed.pkl")
-            os.makedirs(os.path.dirname(pooled_prompt_embed_file), exist_ok=True)
             joblib.dump(pooled_prompt_embed, pooled_prompt_embed_file)
             pooled_prompt_embed_file_hash_value = hashlib.sha256(pooled_prompt_embed_file.encode()).hexdigest()
             del pooled_prompt_embed
+
 
             gc.collect()
             torch.cuda.empty_cache()
@@ -702,7 +735,6 @@ def cache_image_caption_pair(
                 "add_time_id": add_time_id,
             }
 
-            json_file_path = os.path.join(cache_dir, f"{image_file}.metadata.json")
             with open(json_file_path, "w") as f:
                 json.dump(metadata, f, indent=4)
 
@@ -783,7 +815,10 @@ def cached_file_integrity_check(json_file_path):
 
 
 def Real_ESRGAN(image, outscale, upscale_use_GFPGAN, image_file, save_upscale_samples):
-    #code modified from: https://github.com/xinntao/Real-ESRGAN/blob/master/inference_realesrgan.py
+    #Real-ESRGAN is BSD-3-Clause license
+    #License: https://github.com/xinntao/Real-ESRGAN/blob/master/LICENSE 
+    #Original code: https://github.com/xinntao/Real-ESRGAN/blob/master/inference_realesrgan.py
+    #The code has been modified to suite the needs of this script
 
     #Adjustable options Real_ESRGAN & GFPGAN.  Just left things at default.
     tile = 0 #type=int, default=0, help='Tile size, 0 for no tile during testing')

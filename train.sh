@@ -28,7 +28,7 @@ accelerate launch \
 	sdxl_FSDP_train_48.py \
 	--project_name 48_sample_dataset\
 	--pretrained_model_name_or_path stabilityai/stable-diffusion-xl-base-1.0 \
-	--cached_dataset_dirs cache \
+	--cached_dataset_dirs /mnt/storage/cache/ \
 	--max_resolution 1024 \
 	--min_resolution 256 \
 	--upscale_to_resolution 1024 \

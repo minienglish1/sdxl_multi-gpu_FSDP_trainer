@@ -14,7 +14,7 @@
 
 source venv/bin/activate
 accelerate launch --config_file single_gpu_0.yaml sdxl_process_data_dir_06.py \
-	--cache_dir cache \
+	--cache_dir /mnt/storage/cache/ \
 	--data_dir sample_dataset \
 	--max_resolution 1024 \
 	--min_resolution 256 \
