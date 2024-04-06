@@ -128,19 +128,22 @@ Other
   2) create venv (create_venv.sh)
   3) install requirements (update_req.sh)
      - GFPGAN/BasicSR/RealESRGAN will complain about tb-nightly not installed.  Installing tb-nightly causes two versions of tensorboard to be installed, thus breaking tensorboard.  If you know the proper way of preventing tb-nightly from being installed, let me know in discussions.  Currenly GFPGAN/BasicSR/RealESRGAN installed without dependencies, then need dependencies installed.
-  5) in venv/lib/python3.10/site-packages/basicsr/data/degradations.py
+  4) in venv/lib/python3.10/site-packages/basicsr/data/degradations.py
      - change torchvision.transforms.functional_tensor to torchvision.transforms.functional
      - basicsr uses deprecated call to torchvision
-  6) download and put in base directory:
+  5) download and put in base directory:
      - GFPGANv1.3.pth : https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.3.pth
      - RealESRGAN_x4plus.pth : https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth
      - HPS_v2.1_compressed.pt: https://huggingface.co/xswu/HPSv2/blob/main/HPS_v2.1_compressed.pt
-  7) download bpe_simple_vocab_16e6.txt.gz: https://github.com/openai/CLIP/blob/main/clip/bpe_simple_vocab_16e6.txt.gz
+  6) download bpe_simple_vocab_16e6.txt.gz: https://github.com/openai/CLIP/blob/main/clip/bpe_simple_vocab_16e6.txt.gz
      - put in: venv/lib/python3.10/site-packages/hpsv2/src/open_clip/
-  9) cache image-caption.txt pair database (sdxl_process_data_dir.sh)
+  7) cache image-caption.txt pair database (sdxl_process_data_dir.sh)
      - choose gpu to use via changing gpu_ids: in single_gpu_0.yaml (set for gpu 0)
-  11) train (train.sh)
+  8) train (train.sh)
       - choose gpus to use via changing gpu_ids: in FSDP_12.yaml (set for gpus 1,2)
+
+
+If you get an error about export NCCL_P2P_DISABLE=1 & export NCCL_IB_DISABLE=1, add them to the .sh files.  A recent accelerate update broke things, waiting to see if accelerate with fix itself with the next update.
 
 
 each python script has detailed information at the top of the script, same for each .sh file.
