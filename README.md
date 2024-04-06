@@ -1,6 +1,3 @@
-## THIS REPO IS NOT VERIFIED WORKING YET!
-## USE AT YOUR OWN RISK!
-
 # sdxl_multi-gpu_FSDP_trainer
 Most likely this is not for you.
 If you want an easy to use & excellent stable diffusion trainer, try EveryDream2Trainer:
@@ -11,7 +8,7 @@ I spent 6 months learning python in my spare time, starting from zero programmin
 I spent a few more months to create what is here.
 Do not expect a professional programmer's quality, or you will be sorely disappointed.
 
-This script has not been extensively tested.  I have tried my best to ensure that functions work as they should, but there are going to be bugs.  By using this script, you're basically volunteering for bug finding duty.
+I have tried my best to ensure that functions work as they should, tested all the features, checked the outputs, and everything seems good to go.  But there are going to be bugs.  By using this script, you're basically volunteering for bug finding duty.
 
 Real-ESRGAN & HPSv2 code was referenced in this code.  Specific information regarding code used & license can be found in the relevant code sections.
 
