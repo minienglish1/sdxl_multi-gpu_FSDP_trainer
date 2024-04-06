@@ -111,7 +111,7 @@ Important
 	- change torchvision.transforms.functional_tensor to torchvision.transforms.functional
 
 Known Bugs/Issues
-- *Fixed* It is suggested to use absolute dirs.  - - cache_dir: only works with relative paths
+- *Fixed*: It is suggested to use absolute dirs.  - - cache_dir: only works with relative paths
 - upscale/original_image Vs not upscale/original image training quality comparison test not conducted yet
 
 
