@@ -13,10 +13,7 @@ Do not expect a professional programmer's quality, or you will be sorely disappo
 
 This script has not been extensively tested.  I have tried my best to ensure that functions work as they should, but there are going to be bugs.  By using this script, you're basically volunteering for bug finding duty.
 
-The astute among you will notice this repo has no license.
-That's because I need to check the code references I used to verify what license I can use.
-Assume this is MIT license, or whatever the most open license I can use is.
-If you have experience choosing appropriate licenses, and have a suggestion, leave a comment in the discussions.
+Real-ESRGAN & HPSv2 code was referenced in this code.  Specific information regarding code used & license can be found in the relevant code sections.
 
 
 ## Welcome
