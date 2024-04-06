@@ -143,6 +143,9 @@ Other
 If you get an error about export NCCL_P2P_DISABLE=1 & export NCCL_IB_DISABLE=1, add them to the .sh files.  A recent accelerate update broke things, waiting to see if accelerate with fix itself with the next update.
 
 
-each python script has detailed information at the top of the script, same for each .sh file.
-they have more info than this readme.
-there are 100 sample image-caption.txt pairs in sample_dataset for you to use to get a feel for this script. Samples are from ComicArtCommunity dataset, captioned with cog.
+If you have other problems with requirements, see pip_freeze.txt for a list of the dependencies I had installed on my latest stable install.
+
+
+Each python script has detailed information at the top of the script, same for each .sh file.
+Ehey have more info than this readme.
+Ehere are 100 sample image-caption.txt pairs in sample_dataset for you to use to get a feel for this script. Samples are from ComicArtCommunity dataset, captioned with cog.
