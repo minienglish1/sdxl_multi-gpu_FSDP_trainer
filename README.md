@@ -140,7 +140,7 @@ Other
       - choose gpus to use via changing gpu_ids: in FSDP_12.yaml (set for gpus 1,2)
 
 
-If you get an error about export NCCL_P2P_DISABLE=1 & export NCCL_IB_DISABLE=1, add them to the .sh files.  A recent accelerate update broke things, waiting to see if accelerate with fix itself with the next update.
+If you get an error about export NCCL_P2P_DISABLE=1 & export NCCL_IB_DISABLE=1, revert back to accelerate==0.28.0. Only appending export NCCL_P2P_DISABLE=1 & export NCCL_IB_DISABLE=1 without downgrading accelerate will work, but may cause Cuda OOM after 1st epoch A recent accelerate update broke things, waiting to see if accelerate with fix itself with the next update.  In the meantime use accelerate==0.28.0.
 
 
 If you have other problems with requirements, see pip_freeze.txt for a list of the dependencies I had installed on my latest stable install.
