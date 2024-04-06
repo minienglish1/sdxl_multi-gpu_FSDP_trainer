@@ -62,7 +62,7 @@ Features:
 - use convert_diffusers_to_original_sdxl to convert saved diffusers pipeline to safetensors
 - aspect ratio bucketing: multiple aspect ratio buckets per training resolution
 - multi-resolution: set a training resolution range
-	- image >= max_resolution: downscale image to max resolution
+	- image > max_resolution: downscale image to max resolution
 	- image < min_resolution: skip image
 	- training resolution range: min to max resolution
 - upscale low res training images: avoids learning upscale artifacts via original size
