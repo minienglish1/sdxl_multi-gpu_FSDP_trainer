@@ -1,3 +1,6 @@
+## Some major updates are planned that significantly improve training speed and improve user experience.
+## It's highly suggested to wait for the update (ETA April 15th)
+
 # sdxl_multi-gpu_FSDP_trainer
 Most likely this is not for you.
 If you want an easy to use & excellent stable diffusion trainer, try EveryDream2Trainer:
