@@ -3,8 +3,12 @@
 
 # sdxl_multi-gpu_FSDP_trainer
 Most likely this is not for you.
-If you want an easy to use & excellent stable diffusion trainer, try EveryDream2Trainer:
+If you want an easy to use & excellent stable diffusion 1.5 & 2.1 trainer, try EveryDream2Trainer:
 https://github.com/victorchall/EveryDream2trainer/
+
+for sdxl, checkout:
+https://github.com/bghira/SimpleTuner
+
 
 I am a novice programmer.
 I spent 6 months learning python in my spare time, starting from zero programming skills, to be able to write my first function sdxl trainer.
