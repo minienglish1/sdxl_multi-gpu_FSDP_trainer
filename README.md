@@ -2,8 +2,9 @@
 ## It's highly suggested to wait for the update (ETA April 15th)
 
 # sdxl_multi-gpu_FSDP_trainer
-Most likely this is not for you.
-If you want an easy to use & excellent stable diffusion 1.5 & 2.1 trainer, try EveryDream2Trainer:
+Most likely this is not for you.  This was written for my specific needs, and never meant to be designed for mass consumer use.
+
+for stable diffusion 1.5 & 2.1 trainer, try EveryDream2Trainer:
 https://github.com/victorchall/EveryDream2trainer/
 
 for sdxl, checkout:
