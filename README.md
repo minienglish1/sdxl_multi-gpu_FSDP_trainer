@@ -1,5 +1,5 @@
-## Some major updates are planned that significantly improve training speed and improve user experience.
-## It's highly suggested to wait for the update (ETA April 15th)
+## Accelerate has some issues that need to be worked out, training speed is highly unstable
+## Currently testing different options
 
 # sdxl_multi-gpu_FSDP_trainer
 Most likely this is not for you.  This was written for my specific needs, and never meant to be designed for mass consumer use.
